@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import Wheel from './Wheel';
 
 function App() {
+  const data = [
+    { option: 'Hoàng', style: { backgroundColor: 'green', textColor: 'black' }, percent: 25 },
+    { option: 'Nam', style: { backgroundColor: 'white' }, percent: 25 },
+    { option: 'Khánh', percent: 25 },
+    { option: 'Ly', percent: 5 },
+    { option: 'Mẫn', percent: 20 },
+    { option: 'Ngọc', percent: 5 },
+  ]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Wheel data={data}/>
     </div>
   );
 }
