@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Wheel } from 'react-custom-roulette'
 import './Wheel.css';
+import sound from './assets/gunshot.mp3';
 
 function WheelUI(props) {
   const { data, units } = props;
@@ -11,21 +12,29 @@ function WheelUI(props) {
   }, 0)
 
   const start = () => {
-    const randomNumber = Math.floor(Math.random() * totalUnits);
+    const randomNumber = Math.round(Math.random() * (totalUnits - 1), 1);
     setPrizeNumber(units[randomNumber]);
     // console.log(units, randomNumber, totalUnits, units[randomNumber]);
     setIsStart(true);
   }
 
+  const onStopSpinning = () => {
+    const audio = new Audio(sound);
+    audio.play();
+
+    setIsStart(false);
+  }
+
   return (
     <div className='wheel-container'>
+      <div className='title'>Ún rịu</div>
       <Wheel
         mustStartSpinning={isStart}
         prizeNumber={prizeNumber}
         data={data}
         backgroundColors={['red', '#df3428']}
         textColors={['#ffffff']}
-        onStopSpinning={() => setIsStart(false)}
+        onStopSpinning={onStopSpinning}
         spinDuration={1}
         innerBorderColor={'gray'}
         innerRadius={10}

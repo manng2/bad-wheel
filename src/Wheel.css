@@ -6,6 +6,11 @@
   margin-top: 2rem;
 }
 
+.title {
+  font-size: 64px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
 
 .btn-spin {
   margin-top: 1rem;
