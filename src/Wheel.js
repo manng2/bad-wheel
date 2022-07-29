@@ -12,9 +12,17 @@ function WheelUI(props) {
   }, 0)
 
   const start = () => {
+    const save = [];
+    for (let i = 0; i < 1000000; i++) {
+      const randomNumber = Math.round(Math.random() * (totalUnits - 1), 1);
+      const x = data[units[randomNumber]].option;
+      save[x] = save[x] ? ++save[x] : 1;
+    }
+
+    console.log(save);
     const randomNumber = Math.round(Math.random() * (totalUnits - 1), 1);
     setPrizeNumber(units[randomNumber]);
-    // console.log(units, randomNumber, totalUnits, units[randomNumber]);
+    console.log(units, randomNumber, totalUnits, data[units[randomNumber]].option);
     setIsStart(true);
   }
 
